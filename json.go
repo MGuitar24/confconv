@@ -14,7 +14,7 @@ func ConvertYAMLToJSON(data []byte) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	jsonData, err := json.MarshalIndent(data, "", "  ")
+	jsonData, err := json.MarshalIndent(ymlData, "", "  ")
 	return jsonData, err
 }
 
