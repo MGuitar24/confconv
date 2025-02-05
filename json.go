@@ -8,7 +8,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-func ConvertYMLToJSON(data []byte) ([]byte, error) {
+func ConvertYAMLToJSON(data []byte) ([]byte, error) {
 	var ymlData map[string]interface{}
 	err := yaml.Unmarshal(data, &ymlData)
 	if err != nil {
@@ -18,14 +18,14 @@ func ConvertYMLToJSON(data []byte) ([]byte, error) {
 	return jsonData, err
 }
 
-func RewriteYMLToJSON(path string) error {
+func RewriteYAMLToJSON(path string) error {
 	if fileExists(path) {
 		fileData, err := readFile(path)
 		if err != nil {
 			return fmt.Errorf("failed to read file %s: %w", path, err)
 		}
 
-		jsonData, err := ConvertYMLToJSON(fileData)
+		jsonData, err := ConvertYAMLToJSON(fileData)
 		if err != nil {
 			return fmt.Errorf("failed to convert file to JSON %s: %w", path, err)
 		}
