@@ -13,7 +13,10 @@ func fileExists(path string) bool {
 
 func identifyFileType(path string) string {
 	if fileExists(path) {
-		return strings.ToLower(filepath.Ext(path)[1:])
+		ext := filepath.Ext(path)
+		if len(ext) > 0 {
+			return strings.ToLower(ext[1:])
+		}
 	}
 	return "unknown"
 }
