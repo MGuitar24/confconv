@@ -1,4 +1,4 @@
-module github.com/MGuitar24/confconv
+module github.com/mikegetz/confconv
 
 go 1.23.3
 
